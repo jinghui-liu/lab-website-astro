@@ -1,0 +1,165 @@
+
+/* =========================================
+   LIU LAB — PUBLICATIONS PAGE
+   ========================================= */
+
+/* 1. PAGE INTRODUCTION */
+
+.publications-intro {
+  margin-bottom: 80px;
+}
+
+.intro-description {
+  max-width: none;
+  white-space: nowrap;
+  color: var(--color-secondary);
+  font-size: 21px;
+  line-height: 1.6;
+}
+
+/* 2. YEAR GROUPING */
+
+.publication-year {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+  gap: 32px;
+  margin-bottom: 72px;
+}
+
+.publication-year h2 {
+  margin: 0;
+  font-size: 38px;
+  letter-spacing: -0.04em;
+  color: var(--color-accent);
+}
+
+.publication-list {
+  min-width: 0;
+  width: 100%;
+}
+
+/* 3. INDIVIDUAL PUBLICATIONS */
+
+.publication {
+  display: grid;
+  grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: start;
+
+  padding-bottom: 44px;
+  margin-bottom: 44px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Left column */
+
+.publication-content {
+  min-width: 0;
+}
+
+.publication-topic {
+  margin: 0 0 14px;
+  color: var(--color-accent);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.publication h3 {
+  margin: 0 0 14px;
+  font-size: clamp(23px, 2.5vw, 30px);
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
+.publication-authors {
+  margin: 0 0 8px;
+  color: #566273;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.publication-authors strong {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.publication-journal {
+  margin: 0 0 22px;
+  color: var(--color-secondary);
+  font-size: 15px;
+}
+
+/* Larger abstract / digest */
+
+.publication-digest {
+  max-width: none;
+  margin: 0 0 24px;
+  color: #394656;
+  font-size: 21px;
+  line-height: 1.7;
+}
+
+.publication-link {
+  color: var(--color-accent);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.publication-link:hover {
+  text-decoration: underline;
+}
+
+/* 4. RIGHT COLUMN — GIF THUMBNAIL */
+
+.publication-media {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f3f6f8;
+}
+
+.publication-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* 5. RESPONSIVE LAYOUT */
+
+@media (max-width: 900px) {
+  .publication {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .publication-media {
+    max-width: 480px;
+  }
+
+  .publication-digest {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 800px) {
+  .publications-intro {
+    margin-bottom: 48px;
+  }
+
+  .publication-year {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .publication-year h2 {
+    font-size: 32px;
+  }
+}

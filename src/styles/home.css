@@ -1,0 +1,557 @@
+
+/* ==========================================================
+   LIU LAB — HOMEPAGE STYLESHEET
+   ========================================================== */
+
+/* 1. GLOBAL */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  color: #171b21;
+  font-family: "Aptos", Arial, sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+/* 2. FLOATING NAVIGATION */
+
+header {
+  position: fixed;
+  top: 16px;
+  left: 2%;
+  width: 96%;
+  min-height: 72px;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 12px 24px;
+
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border: 1px solid #e4e8ec;
+  border-radius: 14px;
+
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+}
+
+.lab-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #111;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.lab-name {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.university-logo {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+nav a {
+  font-size: 18px;
+  font-weight: 400;
+  color: #172033;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+  color: #087b91;
+}
+
+nav .join-button,
+nav .join-us {
+  padding: 12px 20px;
+  border-radius: 6px;
+  background: #07596a;
+  color: #fff;
+  font-weight: 600;
+}
+
+nav .join-button:hover,
+nav .join-us:hover {
+  background: #087b91;
+  color: #fff;
+}
+
+/* 3. FULL-SCREEN MICROSCOPY VIDEO */
+
+.video-hero {
+  position: relative;
+  width: 100%;
+  margin-top: 100px;
+  height: calc(100svh - 100px);
+  min-height: 500px;
+  padding: 0;
+  overflow: hidden;
+  background: #000;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: left center;
+  background: #000;
+}
+
+/* Darken the right side to make the text legible */
+
+.video-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.05) 20%,
+    rgba(0, 0, 0, 0.3) 55%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+
+  pointer-events: none;
+}
+
+/* 4. CINEMATIC TITLE */
+
+.hero-overlay {
+  position: absolute;
+  z-index: 2;
+
+  top: 50%;
+  right: 5%;
+  width: max-content;
+  max-width: 60%;
+
+  transform: translateY(-50%);
+  text-align: left;
+}
+
+.hero-overlay h1 {
+  margin: 0 0 24px;
+
+  font-family: "Aptos", Arial, sans-serif;
+  font-size: clamp(48px, 6.5vw, 100px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+
+  color: #ffbf00;
+  text-align: left;
+
+  animation: hero-fade-in 1.5s ease-out both;
+}
+
+.hero-overlay p {
+  margin: 0;
+
+  font-family: "Aptos", Arial, sans-serif;
+  font-size: clamp(16px, 1.8vw, 26px);
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0;
+
+  color: #009dff;
+  text-align: right;
+
+  animation: hero-fade-in 2s ease-out both;
+}
+
+@keyframes hero-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 5. SCROLL PROMPT */
+
+.scroll-prompt {
+  position: absolute;
+  z-index: 3;
+
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 600;
+
+  transition: opacity 0.2s ease;
+}
+
+.scroll-prompt:hover {
+  opacity: 0.75;
+}
+
+.scroll-prompt .arrow {
+  font-size: 30px;
+  font-weight: 300;
+  animation: arrow-bounce 2s infinite;
+}
+
+@keyframes arrow-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+/* 6. MISSION SECTION */
+
+.mission-section {
+  background: #fff;
+  padding: 120px 8%;
+  scroll-margin-top: 100px;
+}
+
+.mission-content {
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.mission-eyebrow,
+.eyebrow {
+  color: #087b91;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0 0 20px;
+}
+
+.mission-section h2 {
+  margin: 0 0 36px;
+
+  color: #171b21;
+  font-size: clamp(42px, 5vw, 72px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+.mission-content > p:not(.eyebrow):not(.mission-eyebrow) {
+  color: #536174;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.8;
+
+  margin: 0 0 24px;
+
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* 7. RESEARCH SECTION */
+
+.research-section {
+  background: #f7f9fb;
+  padding: 110px 8%;
+}
+
+.research-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.research-section h2 {
+  font-size: clamp(40px, 4.5vw, 64px);
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  margin: 0 0 50px;
+}
+
+.research-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.research-card {
+  min-width: 0;
+  padding: 32px;
+
+  background: #fff;
+  border: 1px solid #e5eaf0;
+  border-radius: 14px;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.research-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.research-card h3 {
+  margin: 0 0 16px;
+  font-size: 26px;
+  line-height: 1.25;
+  color: #171b21;
+}
+
+.research-card p {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #536174;
+}
+
+.research-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+/* 8. GENERAL FOOTER */
+
+footer {
+  padding: 36px 8%;
+  background: #fff;
+  border-top: 1px solid #e5eaf0;
+
+  color: #536174;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* 9. TABLET */
+
+@media (max-width: 1000px) {
+  header {
+    padding: 12px 18px;
+  }
+
+  nav {
+    gap: 16px;
+  }
+
+  nav a {
+    font-size: 15px;
+  }
+
+  .lab-name {
+    font-size: 24px;
+  }
+
+  .university-logo {
+    height: 30px;
+  }
+
+  .hero-overlay {
+    right: 5%;
+    max-width: 65%;
+  }
+
+  .hero-overlay h1 {
+    font-size: clamp(42px, 6vw, 72px);
+  }
+
+  .research-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* 10. MOBILE */
+
+@media (max-width: 700px) {
+  header {
+    top: 10px;
+    left: 3%;
+    width: 94%;
+    min-height: auto;
+
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 12px 16px;
+  }
+
+  .lab-name {
+    font-size: 23px;
+  }
+
+  .university-logo {
+    height: 27px;
+  }
+
+  nav {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 16px;
+  }
+
+  nav a {
+    font-size: 13px;
+  }
+
+  nav .join-button,
+  nav .join-us {
+    padding: 8px 12px;
+  }
+
+  .video-hero {
+    height: 100svh;
+    min-height: 580px;
+  }
+
+  .hero-video {
+    object-position: 35% center;
+  }
+
+  .hero-overlay {
+    top: 52%;
+    left: 6%;
+    right: 6%;
+    width: auto;
+    max-width: none;
+  }
+
+  .hero-overlay h1 {
+    font-size: clamp(38px, 9vw, 62px);
+    overflow-wrap: anywhere;
+  }
+
+  .hero-overlay p {
+    font-size: clamp(13px, 3.3vw, 19px);
+  }
+
+  .scroll-prompt {
+    bottom: 25px;
+    font-size: 17px;
+  }
+
+  .mission-section {
+    padding: 90px 7%;
+  }
+
+  .mission-section h2 {
+    font-size: 42px;
+  }
+
+  .mission-content > p:not(.eyebrow):not(.mission-eyebrow) {
+    font-size: 18px;
+    line-height: 1.7;
+    text-align: left;
+  }
+
+  .research-section {
+    padding: 80px 7%;
+  }
+
+  .research-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .research-card {
+    padding: 26px;
+  }
+}
+
+/* 11. ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .hero-overlay h1,
+  .hero-overlay p,
+  .scroll-prompt .arrow {
+    animation: none;
+  }
+
+  .research-card {
+    transition: none;
+  }
+}
+
+/* Active navigation tab */
+header nav a[aria-current="page"] {
+  color: #087b91;
+  font-weight: 500;
+}
+
+.research {
+  padding: 70px 7%;
+  background: #f5f8f9;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.cards article {
+  padding: 25px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+}
+
+@media (max-width: 800px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}

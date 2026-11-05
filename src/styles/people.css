@@ -1,0 +1,85 @@
+
+/* =========================================
+   LIU LAB — PEOPLE PAGE
+   ========================================= */
+
+/* 1. PAGE INTRODUCTION */
+
+.people-intro {
+  margin-bottom: 70px;
+}
+
+/* 2. PRINCIPAL INVESTIGATOR PROFILE */
+
+.pi-section {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 64px;
+  align-items: start;
+}
+
+.pi-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.role {
+  color: var(--color-accent);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  margin: 0 0 12px;
+}
+
+.pi-info h2 {
+  font-size: clamp(36px, 4vw, 54px);
+  letter-spacing: -0.035em;
+  margin: 0 0 28px;
+}
+
+.pi-bio {
+  font-size: 19px;
+  line-height: 1.8;
+  color: #465466;
+  margin: 0;
+}
+
+/* 3. PROFILE LINKS */
+
+.pi-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.pi-links a {
+  color: var(--color-accent);
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.pi-links a:hover {
+  border-bottom-color: currentColor;
+}
+
+/* 4. MOBILE */
+
+@media (max-width: 800px) {
+  .people-intro {
+    margin-bottom: 40px;
+  }
+
+  .pi-section {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .pi-photo {
+    max-width: 300px;
+  }
+}

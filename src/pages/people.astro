@@ -1,0 +1,72 @@
+
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/people.css";
+---
+
+<BaseLayout title="People">
+  <main class="people-page page-container">
+    <div class="people-intro">
+      <p class="page-eyebrow">LIU LAB · BEHIND THE SCIENCE</p>
+      <h1 class="page-title">People</h1>
+    </div>
+
+      <section class="pi-section">
+        <div class="pi-photo">
+          <img
+            src="/images/Jinghui_small.png"
+            alt="Jinghui Liu"
+          />
+        </div>
+
+        <div class="pi-info">
+          <p class="role">PRINCIPAL INVESTIGATOR</p>
+          <h2>Jinghui Liu</h2>
+
+          <p class="pi-bio">
+            Jinghui is an experimental biophysicist
+            interested in uncovering the hidden physical
+            principles that govern living systems. Her
+            research integrates quantitative live-cell
+            imaging, optogenetics, molecular perturbations,
+            and theoretical approaches to investigate how
+            electrical, chemical, and mechanical interactions
+            shape cellular dynamics, morphogenesis, and
+            regeneration. She received her Ph.D. in Physics
+            from MIT and conducted postdoctoral research
+            at the Max Planck Institutes in Dresden, Germany.
+            At Westlake University, she is establishing an
+            interdisciplinary research program exploring the
+            latent physical states of living matter and how
+            they can be harnessed to control biological
+            form and function.
+          </p>
+
+          <div class="pi-links">
+            <a
+              href="https://jinghui-liu.github.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Personal Website ↗
+            </a>
+
+            <!-- Replace with your public email address -->
+            <a href="mailto:liujinghui@westlake.edu.cn">
+              Email ↗
+            </a>
+
+            <!-- Add your CV to public/files/ -->
+            <a
+              href="/files/JinghuiLiu_CV_20261104.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              CV (PDF) ↗
+            </a>
+          </div>
+        </div>
+      </section>
+  </main>
+</BaseLayout>
+

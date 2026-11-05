@@ -1,0 +1,98 @@
+
+/* =========================================
+   LIU LAB — GLOBAL STYLES
+   ========================================= */
+
+:root {
+  --color-text: #171b21;
+  --color-secondary: #536174;
+  --color-accent: #087b91;
+  --color-button: #07596a;
+  --color-background: #ffffff;
+  --color-light-background: #f7f9fb;
+  --color-border: #e4e8ec;
+
+  --font-body: "Aptos", Arial, sans-serif;
+
+  /* Shared page dimensions */
+  --page-padding: 8%;
+  --page-top: 170px;
+  --page-bottom: 110px;
+}
+
+/* Reset */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-background);
+}
+
+a {
+  color: inherit;
+}
+
+/* Shared page layout */
+
+.page-container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding:
+    var(--page-top)
+    var(--page-padding)
+    var(--page-bottom);
+}
+
+/* Shared typography */
+
+.page-eyebrow {
+  margin: 0 0 16px;
+  color: var(--color-accent);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.page-title {
+  margin: 0 0 24px;
+  font-size: clamp(52px, 6vw, 80px);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.page-description {
+  max-width: 760px;
+  color: var(--color-secondary);
+  font-size: 21px;
+  line-height: 1.6;
+}
+
+/* Mobile */
+
+@media (max-width: 800px) {
+  :root {
+    --page-padding: 24px;
+    --page-top: 140px;
+    --page-bottom: 70px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

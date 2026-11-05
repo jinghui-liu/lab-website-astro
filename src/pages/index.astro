@@ -1,16 +1,102 @@
+
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/home.css";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Home">
+  <main>
+
+    <!-- CINEMATIC OPENING -->
+    <section class="video-hero">
+      <video
+        class="hero-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+      >
+        <source
+          src="/videos/larvalfishfin-regeneration.mp4"
+          type="video/mp4"
+        />
+      </video>
+
+      <div class="hero-overlay">
+        <h1>Electrical<br />Morphogenesis</h1>
+        <p>
+          EXPLORING THE LATENT PHYSICAL<br />
+          VARIABLES OF LIFE
+        </p>
+      </div>
+
+      <a href="#mission" class="scroll-prompt">
+        <span>Our Mission</span>
+        <span class="arrow">↓</span>
+      </a>
+    </section>
+
+    <!-- MISSION STATEMENT -->
+    <section id="mission" class="mission-section">
+      <div class="mission-content">
+        <p class="eyebrow">
+          EXPLORING THE HIDDEN VARIABLES OF LIFE
+        </p>
+
+        <h2>Electrical Morphogenesis</h2>
+
+        <p>
+          We integrate interdisciplinary approaches to uncover how
+          hidden physical variables—from electrical to mechanical—
+          shape living systems.
+        </p>
+
+        <p>
+          Combining all-optical physiology, molecular interrogation
+          and AI-driven inference, we seek to map the latent
+          landscapes underlying morphogenesis.
+        </p>
+
+        <p>
+          Building on these insights, we develop synthetic
+          approaches to guide and reprogram morphogenetic
+          processes on a chip.
+        </p>
+
+        <a class="button" href="/research">
+          Explore Our Research
+        </a>
+      </div>
+    </section>
+
+    <!-- RESEARCH THEMES -->
+    <section class="research">
+      <h2>Research Themes</h2>
+
+      <div class="cards">
+        <article>
+          <h3>Bioelectricity</h3>
+          <p>
+            Electrical communication across living systems.
+          </p>
+        </article>
+
+        <article>
+          <h3>Electrical Morphogenesis</h3>
+          <p>
+            Physical principles of biological forms driven by electricity.
+          </p>
+        </article>
+
+        <article>
+          <h3>Latent Dynamics</h3>
+          <p>
+            Data-driven discovery of hidden biological states.
+          </p>
+        </article>
+      </div>
+    </section>
+
+  </main>
+</BaseLayout>

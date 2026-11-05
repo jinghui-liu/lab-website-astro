@@ -1,0 +1,178 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/publications.css";
+
+const publications = [
+  {
+    year: 2026,
+    title: "Injury-induced electrochemical coupling triggers organ growth",
+    before: "",
+    after: ", Elisa Nerli, Charlie Duclut, Amit S. Vishen, et al.",
+    journal: "Science Advances",
+    details: "12, eaec0687 (2026)",
+    topic: "Bioelectricity · Regeneration",
+    digest: "How does a wounded organ turn electrical signals into growth? Using live imaging, perturbations, and electrodiffusive theory in zebrafish fins, we uncover how rapid membrane depolarization couples to calcium signaling and activates cell proliferation through voltage-sensing phosphatase, enabling regeneration.",
+    doi: "https://doi.org/10.1126/sciadv.aec0687",
+        // Keep your existing authors, journal, details, digest, doi...
+    thumbnail: "/images/publications/fin-regeneration.gif",
+  },
+  {
+    year: 2026,
+    title: "Active mechanics of sea star oocytes",
+    before: "Peter J. Foster, Alexandra Zampetaki, ",
+    after: ", Sebastian Fürthauer, Nikta Fakhri",
+    journal: "Physical Review Research",
+    details: "8, 043103 (2026)",
+    topic: "Active Matter · Cell Mechanics",
+    digest: "What determines how quickly a cell changes shape? Combining experiments on sea star oocytes with active-fluid theory, we show that cortical deformation depends on a balance between contractile stress and viscosity, both controlled by the molecular composition of actomyosin networks.",
+    doi: "https://doi.org/10.1103/k71r-5zgm",
+    thumbnail: "/images/publications/fin-regeneration.gif",
+  },
+  {
+    year: 2025,
+    title: "Light-induced cortical excitability reveals programmable shape dynamics in starfish oocytes",
+    before: "",
+    after: ", Tom Burkart, Alexander Ziepke, et al.",
+    journal: "Nature Physics",
+    details: "21, 846–855 (2025)",
+    topic: "Optogenetics · Morphogenesis",
+    digest: "Can we program the shape of a living cell using light? By optogenetically controlling cortical excitability in starfish oocytes, we generate a spectrum of deformations—from localized pinching to traveling contraction waves—and develop a quantitative model connecting biochemical activation to cell geometry.",
+    doi: "https://doi.org/10.1038/s41567-025-02807-x",
+    thumbnail: "/images/publications/fin-regeneration.gif",
+  },
+  {
+    year: 2024,
+    title: "Actin polymerization counteracts prewetting of N-WASP on supported lipid bilayers",
+    before: "Tina Wiegand, ",
+    after: ", Lutz Vogeley, Isabel LuValle-Burke, et al.",
+    journal: "PNAS",
+    details: "121, e2407497121 (2024)",
+    topic: "Phase Separation · Membranes",
+    digest: "How do protein condensates form and dissolve on biological membranes? Using a reconstituted lipid-bilayer system, we show that N-WASP forms surface condensates through a prewetting transition, while actin polymerization opposes their formation. This reveals a physical mechanism for dynamically regulating cortical organization.",
+    doi: "https://doi.org/10.1073/pnas.2407497121",
+    thumbnail: "/images/publications/fin-regeneration.gif",
+  },
+  {
+    year: 2021,
+    title: "Topological braiding and virtual particles on the cell membrane",
+    before: "",
+    after: ", Jan F. Totz, Pearson W. Miller, Alasdair D. Hastewell, et al.",
+    journal: "PNAS",
+    details: "118, e2104191118 (2021)",
+    topic: "Topology · Biochemical Waves",
+    digest: "Can living cells exhibit dynamics reminiscent of particles in quantum matter? We track the trajectories of topological defects in biochemical waves on starfish egg membranes, revealing spontaneous braiding, virtual particle-like excitations, and connections between cellular activity and topological information.",
+    doi: "https://doi.org/10.1073/pnas.2104191118",
+    thumbnail: "/images/publications/fin-regeneration.gif",
+  },
+  {
+    year: 2021,
+    title: "A hierarchy of protein patterns robustly decodes cell shape information",
+    before: "Manon C. Wigbers, Tzer Han Tan, Fridtjof Brauns, ",
+    after: ", S. Zachary Swartz, Erwin Frey, Nikta Fakhri",
+    journal: "Nature Physics",
+    details: "17, 578–584 (2021)",
+    topic: "Pattern Formation · Cell Shape",
+    digest: "How do cells coordinate biochemical activity despite changes in their shape? Combining experiments and theory, we show that a hierarchy of cytosolic gradients, bistable regulation, and excitable Rho signaling enables starfish oocytes to adapt their biochemical patterns to cellular geometry.",
+    doi: "https://doi.org/10.1038/s41567-021-01164-9",
+    thumbnail: "/images/publications/fin-regeneration.gif",
+  },
+  {
+    year: 2020,
+    title: "Topological turbulence in the membrane of a living cell",
+    before: "Tzer Han Tan, ",
+    after: ", Pearson W. Miller, Melis Tekant, Jörn Dunkel, Nikta Fakhri",
+    journal: "Nature Physics",
+    details: "16, 657–662 (2020)",
+    topic: "Topology · Active Matter",
+    digest: "Can the surface of a living cell behave like a turbulent fluid? We discover defect-mediated turbulence in biochemical signaling waves on starfish egg membranes, showing that their collective dynamics obey statistical principles closely related to classical and quantum fluid systems.",
+    doi: "https://doi.org/10.1038/s41567-020-0841-9",
+    thumbnail: "/images/publications/fin-regeneration.gif",
+  },
+  {
+    year: 2016,
+    title: "Resource availability modulates the cooperative and competitive nature of a microbial cross-feeding mutualism",
+    before: "Tim A. Hoek, Kevin Axelrod, Tommaso Biancalani, Eugene A. Yurtsev, ",
+    after: ", Jeff Gore",
+    journal: "PLOS Biology",
+    details: "14, e1002540 (2016)",
+    topic: "Ecology · Collective Dynamics",
+    digest: "What determines whether microbial species cooperate or compete? Using engineered yeast communities and mathematical modeling, we demonstrate how nutrient availability drives transitions between mutualism, competition, and extinction, revealing dynamical signatures that can anticipate ecological collapse.",
+    doi: "https://doi.org/10.1371/journal.pbio.1002540",
+    thumbnail: "/images/publications/fin-regeneration.gif",
+  },
+];
+
+const years = [...new Set(publications.map(p => p.year))];
+---
+
+<BaseLayout title="Publications">
+  <main class="publications-page page-container">
+
+    <section class="publications-intro">
+      <p class="page-eyebrow">LIU LAB · RESEARCH OUTPUT</p>
+      <h1 class="page-title">Publications</h1>
+      <p class="intro-description">
+        Discoveries across bioelectricity, active matter,
+        and the physical principles of living systems.
+      </p>
+    </section>
+
+    {years.map(year => (
+      <section class="publication-year">
+        <h2>{year}</h2>
+
+        <div class="publication-list">
+          {publications
+            .filter(p => p.year === year)
+            .map(p => (
+              
+<article class="publication">
+
+  <!-- LEFT: PUBLICATION INFORMATION -->
+  <div class="publication-content">
+
+    <p class="publication-topic">{p.topic}</p>
+
+    <h3>{p.title}</h3>
+
+    <p class="publication-authors">
+      {p.before}<strong>Jinghui Liu</strong>{p.after}
+    </p>
+
+    <p class="publication-journal">
+      <em>{p.journal}</em> · {p.details}
+    </p>
+
+    <p class="publication-digest">{p.digest}</p>
+
+    <a
+      class="publication-link"
+      href={p.doi}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Read publication ↗
+    </a>
+
+  </div>
+
+  <!-- RIGHT: ANIMATED THUMBNAIL -->
+  <div class="publication-media">
+    {p.thumbnail && (
+      <img
+        src={p.thumbnail}
+        alt={`Visual summary of ${p.title}`}
+        loading="lazy"
+      />
+    )}
+  </div>
+
+</article>
+
+            ))}
+        </div>
+      </section>
+    ))}
+
+  </main>
+</BaseLayout>
