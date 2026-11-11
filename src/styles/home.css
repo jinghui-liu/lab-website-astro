@@ -490,7 +490,7 @@ footer {
   }
 
   .mission-content > p:not(.eyebrow):not(.mission-eyebrow) {
-    font-size: 18px;
+    font-size: 24px;
     line-height: 1.7;
     text-align: left;
   }
@@ -553,5 +553,130 @@ header nav a[aria-current="page"] {
 @media (max-width: 800px) {
   .cards {
     grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================
+   RESEARCH THEMES + LAB NEWS
+   ========================================= */
+
+.home-updates {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 80px;
+  padding: 110px 6% 130px;
+  background: #f7f9fb;
+  scroll-margin-top: 110px;
+}
+
+/* Shared column headings */
+
+.research-column,
+.news-column {
+  min-width: 0;
+}
+
+.section-eyebrow {
+  color: var(--color-accent);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.home-updates h2 {
+  font-size: clamp(36px, 3.5vw, 54px);
+  letter-spacing: -0.04em;
+  margin: 12px 0 44px;
+}
+
+/* Research themes */
+
+.research-list,
+.news-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.research-item,
+.news-item {
+  padding: 28px 0 34px;
+  border-bottom: 1px solid #d9e1e5;
+}
+
+.item-number,
+.news-date {
+  color: var(--color-accent);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.research-item h3,
+.news-item h3 {
+  font-size: clamp(23px, 2vw, 30px);
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  margin: 12px 0;
+}
+
+.research-item p,
+.news-item p {
+  color: #536174;
+  font-size: 19px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Links */
+
+.section-link {
+  display: inline-block;
+  margin-top: 36px;
+  color: var(--color-accent);
+  font-size: 17px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.news-item a {
+  display: inline-block;
+  margin-top: 16px;
+  color: var(--color-accent);
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.section-link:hover,
+.news-item a:hover {
+  text-decoration: underline;
+}
+
+/* Recruitment highlight */
+
+.news-item.recruitment {
+  border-left: 4px solid var(--color-accent);
+  padding-left: 24px;
+  background: rgba(8, 123, 145, 0.04);
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .home-updates {
+    grid-template-columns: 1fr;
+    gap: 70px;
+    padding: 80px 24px;
+  }
+
+  .home-updates h2 {
+    margin-bottom: 24px;
+  }
+
+  .research-item p,
+  .news-item p {
+    font-size: 17px;
   }
 }
