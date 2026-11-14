@@ -4,9 +4,17 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 // Edit recruitment details here.
 const email = "liujinghui@westlake.edu.cn";
 
-// TODO: paste the official Westlake PhD admissions page here.
-// While this is empty, the admissions link is hidden.
-const admissionsUrl = "";
+// Official Westlake graduate admissions page.
+const admissionsUrl = "https://en.westlake.edu.cn/admissions/graduate/";
+
+// PhD programs through which students can join the lab.
+const programs = [
+  "Quantitative Biology and Complex Systems",
+  "Physics",
+  "Biology",
+  "Biomedical Sciences",
+  "Materials Science and Engineering",
+];
 
 // TODO: verify these dates against the official admissions page each cycle.
 const phdRounds = [
@@ -82,9 +90,13 @@ const positions = [
                     <li><strong>{label}:</strong> {detail}</li>
                   ))}
                 </ul>
+                <p class="rounds-title">You can join the lab through these PhD programs</p>
+                <ul>
+                  {programs.map((program) => <li>{program}</li>)}
+                </ul>
                 {admissionsUrl && (
                   <a href={admissionsUrl} target="_blank" rel="noopener noreferrer">
-                    Westlake PhD admissions <span aria-hidden="true">↗</span>
+                    Apply through Westlake graduate admissions <span aria-hidden="true">↗</span>
                   </a>
                 )}
               </div>
@@ -184,7 +196,7 @@ const positions = [
   }
 
   .rounds ul {
-    margin-bottom: 12px;
+    margin-bottom: 16px;
   }
 
   .contact-callout {
