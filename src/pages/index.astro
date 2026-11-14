@@ -15,7 +15,8 @@ import "../styles/home.css";
         muted
         loop
         playsinline
-        preload="metadata"
+        preload="auto"
+        poster="/videos/larvalfishfin-regeneration-poster.jpg"
       >
         <source
           src="/videos/larvalfishfin-regeneration.mp4"
@@ -167,5 +168,26 @@ import "../styles/home.css";
 </section>
 
 
-  </main>
+    </main>
 </BaseLayout>
+
+<script>
+  // Some browsers (e.g. Safari) hold back autoplay; start it explicitly,
+  // and retry on the first interaction if the browser still blocks it.
+  const video = document.querySelector<HTMLVideoElement>(".hero-video");
+  if (video) {
+    video.muted = true;
+    const tryPlay = () => video.play().catch(() => {});
+    tryPlay();
+    video.addEventListener("canplay", tryPlay, { once: true });
+    const onFirstInteraction = () => {
+      tryPlay();
+      window.removeEventListener("pointerdown", onFirstInteraction);
+      window.removeEventListener("keydown", onFirstInteraction);
+      window.removeEventListener("scroll", onFirstInteraction);
+    };
+    window.addEventListener("pointerdown", onFirstInteraction);
+    window.addEventListener("keydown", onFirstInteraction);
+    window.addEventListener("scroll", onFirstInteraction, { passive: true });
+  }
+</script>
