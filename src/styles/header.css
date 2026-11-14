@@ -104,3 +104,51 @@
   padding-left: 16px;
   border-left: 1px solid #d5dce3;
 }
+
+@media (max-width: 1150px) {
+  .site-header {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .site-brand {
+    flex-shrink: 1;
+    min-width: 0;
+  }
+
+  .site-center-name {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 520px) {
+  .site-header {
+    padding-inline: 12px;
+  }
+
+  .site-brand {
+    gap: 8px;
+  }
+
+  .site-lab-name {
+    font-size: 22px;
+  }
+
+  .site-university-logo {
+    height: 26px;
+  }
+
+  .site-center-name {
+    margin-left: 0;
+    padding-left: 8px;
+    font-size: 12px;
+  }
+
+  .site-nav {
+    gap: 8px;
+  }
+
+  .site-nav .site-join-button {
+    padding: 8px 10px;
+  }
+}

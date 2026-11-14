@@ -1,0 +1,200 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+// Edit the introduction and research themes here.
+const introduction =
+  "Cells and tissues generate electrical signals as they grow, change shape, and repair themselves. We study how those signals arise and what they tell us about the forces and feedback that shape living systems.";
+
+const themes = [
+  {
+    id: "electrical-morphogenesis",
+    title: "Electrical Morphogenesis",
+    question: "How do electrical signals help tissues take shape and repair themselves?",
+    description:
+      "Regeneration gives us a way to watch a tissue reorganize after injury. We study how changes in membrane voltage and calcium signaling relate to the behavior of individual cells and the growth of the tissue as a whole.",
+  },
+  {
+    id: "latent-electrical-dynamics",
+    title: "Latent Electrical Dynamics",
+    question: "What can small electrical fluctuations tell us about a living system?",
+    description:
+      "A voltage trace reflects many processes happening at once. We combine time-resolved measurements with physical models to ask which features of a signal reveal the underlying dynamics and which require other measurements to interpret.",
+  },
+  {
+    id: "sensing-and-programming-life",
+    title: "Sensing and Programming Life",
+    question: "How can we test whether an electrical signal changes what a cell does?",
+    description:
+      "We explore how optical and electrical interfaces can help us measure signals and test their effects. Controlled perturbations let us compare what a model predicts with how cells and tissues respond.",
+  },
+];
+---
+
+<BaseLayout title="Research">
+  <main class="page-container">
+    <header class="research-intro">
+      <p class="page-eyebrow">Liu Lab · Living Electrodynamics</p>
+      <h1 class="page-title">Research</h1>
+      <p class="page-description">{introduction}</p>
+    </header>
+
+    <nav class="theme-nav" aria-label="Research themes">
+      <ul>
+        {themes.map(({ id, title }) => (
+          <li>
+            <a href={`#${id}`}>{title}<span aria-hidden="true">↓</span></a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="themes">
+      {themes.map(({ id, title, question, description }) => (
+        <section class="theme" id={id} aria-labelledby={`${id}-title`}>
+          <h2 id={`${id}-title`}>{title}</h2>
+          <div class="theme-copy">
+            <p class="theme-question">{question}</p>
+            <p>{description}</p>
+            {id === "electrical-morphogenesis" && (
+              <figure>
+                <video controls playsinline preload="metadata" aria-label="Microscopy footage of larval fish fin regeneration">
+                  <source src="/videos/larvalfishfin-regeneration.mp4" type="video/mp4" />
+                  <a href="/videos/larvalfishfin-regeneration.mp4">Watch the fin regeneration video</a>
+                </video>
+                <figcaption>Microscopy footage of larval fish fin regeneration.</figcaption>
+              </figure>
+            )}
+          </div>
+        </section>
+      ))}
+    </div>
+
+    <section class="publications-callout" aria-labelledby="publications-title">
+      <h2 id="publications-title">Publications</h2>
+      <a href="/publications">Browse publications <span aria-hidden="true">↗</span></a>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .research-intro {
+    margin-bottom: 80px;
+  }
+
+  .theme-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    margin: 0;
+    padding: 0 0 28px;
+  }
+
+  .theme-nav a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 15px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    color: var(--color-button);
+    font-weight: 700;
+    line-height: 1.4;
+    text-decoration: none;
+  }
+
+  .theme-nav a:hover {
+    background: var(--color-light-background);
+    border-color: var(--color-accent);
+  }
+
+  .theme {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.65fr);
+    gap: 40px;
+    padding-block: 44px;
+    border-top: 1px solid var(--color-border);
+    scroll-margin-top: 160px;
+  }
+
+  .theme h2,
+  .publications-callout h2 {
+    margin: 0;
+    font-size: clamp(23px, 2.5vw, 30px);
+    line-height: 1.25;
+    letter-spacing: -0.025em;
+  }
+
+  .theme-copy > p {
+    margin: 0;
+    color: var(--color-secondary);
+    font-size: var(--font-size-prose);
+    line-height: 1.7;
+  }
+
+  .theme-copy > .theme-question {
+    margin-bottom: 12px;
+    color: var(--color-text);
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  figure {
+    margin: 28px 0 0;
+  }
+
+  video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    background: #10191c;
+  }
+
+  figcaption {
+    margin-top: 10px;
+    color: var(--color-secondary);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .publications-callout {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: clamp(24px, 4vw, 52px);
+    border-radius: 12px;
+    background: var(--color-button);
+    color: white;
+  }
+
+  .publications-callout a {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border: 1px solid currentColor;
+    border-radius: 6px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .publications-callout a:hover {
+    background: white;
+    color: var(--color-button);
+    border-color: white;
+  }
+
+  @media (max-width: 800px) {
+    .research-intro {
+      margin-bottom: 48px;
+    }
+
+    .theme {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+</style>

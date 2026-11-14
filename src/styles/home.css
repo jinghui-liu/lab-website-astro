@@ -257,13 +257,22 @@ nav .join-us:hover {
 
 .mission-section {
   background: #fff;
-  padding: 120px 8%;
+  padding-block: 120px;
   scroll-margin-top: 100px;
 }
 
 .mission-content {
+  width: 84%;
   max-width: 1050px;
   margin: 0 auto;
+}
+
+.mission-scroll-prompt {
+  position: static;
+  width: max-content;
+  margin: 48px auto 0;
+  transform: none;
+  color: var(--color-button);
 }
 
 .mission-eyebrow,
@@ -288,10 +297,11 @@ nav .join-us:hover {
 
 .mission-content > p:not(.eyebrow):not(.mission-eyebrow) {
   color: #536174;
-  font-size: 20px;
+  font-family: "Aptos", Arial, sans-serif;
+  font-size: clamp(21px, 1.65vw, 27px);
   font-weight: 400;
-  line-height: 1.8;
-
+  line-height: 1.65;
+  letter-spacing: -0.01em;
   margin: 0 0 24px;
 
   text-align: justify;
@@ -482,7 +492,11 @@ footer {
   }
 
   .mission-section {
-    padding: 90px 7%;
+    padding-block: 90px;
+  }
+
+  .mission-content {
+    width: 86%;
   }
 
   .mission-section h2 {
@@ -563,11 +577,45 @@ header nav a[aria-current="page"] {
 
 .home-updates {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 80px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.45fr);
+  gap: 48px;
   padding: 110px 6% 130px;
   background: #f7f9fb;
   scroll-margin-top: 110px;
+}
+
+@supports (grid-template-columns: subgrid) {
+  @media (width > 900px) {
+    .home-main {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) [news-start] max-content [news-label-end] minmax(0, 1fr);
+    }
+
+    .home-main > section,
+    .mission-content {
+      grid-column: 1 / -1;
+    }
+
+    .mission-section,
+    .home-updates {
+      display: grid;
+      grid-template-columns: subgrid;
+      column-gap: 0;
+    }
+
+    .mission-scroll-prompt {
+      grid-column: news-start / news-label-end;
+    }
+
+    .research-column {
+      grid-column: 1 / news-start;
+      margin-inline-end: 48px;
+    }
+
+    .news-column {
+      grid-column: news-start / -1;
+    }
+  }
 }
 
 /* Shared column headings */
@@ -624,7 +672,7 @@ header nav a[aria-current="page"] {
 .research-item p,
 .news-item p {
   color: #536174;
-  font-size: 19px;
+  font-size: var(--font-size-prose);
   line-height: 1.7;
   margin: 0;
 }
@@ -666,7 +714,7 @@ header nav a[aria-current="page"] {
 
 @media (max-width: 900px) {
   .home-updates {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 70px;
     padding: 80px 24px;
   }
@@ -674,9 +722,85 @@ header nav a[aria-current="page"] {
   .home-updates h2 {
     margin-bottom: 24px;
   }
+}
 
-  .research-item p,
-  .news-item p {
-    font-size: 17px;
+
+/* MISSION SECTION — ACTION BUTTONS */
+
+.mission-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 42px;
+}
+
+.mission-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+
+  padding: 16px 26px;
+  border-radius: 8px;
+
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* Research — understated */
+
+.research-button {
+  background: white;
+  color: #07596a;
+  border: 2px solid #07596a;
+  
+    font-size: 22px;
+  font-weight: 800;
+  padding: 18px 30px;
+}
+
+.research-button:hover {
+  background: #eaf3f5;
+  transform: translateY(-2px);
+}
+
+/* Recruitment — highlighted */
+
+.recruiting-button {
+  background: #e6a23c;
+  color: #172033;
+  border: 2px solid #e6a23c;
+
+  font-size: 22px;
+  font-weight: 800;
+  padding: 18px 30px;
+}
+
+.recruiting-button:hover {
+  background: #f0b653;
+  border-color: #f0b653;
+  transform: translateY(-2px);
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .mission-actions {
+    gap: 12px;
+  }
+
+  .mission-button {
+    font-size: 15px;
+    padding: 14px 18px;
   }
 }
+

@@ -100,7 +100,7 @@
   max-width: none;
   margin: 0 0 24px;
   color: #394656;
-  font-size: 21px;
+  font-size: var(--font-size-prose);
   line-height: 1.7;
 }
 
@@ -142,10 +142,6 @@
 
   .publication-media {
     max-width: 480px;
-  }
-
-  .publication-digest {
-    font-size: 19px;
   }
 }
 

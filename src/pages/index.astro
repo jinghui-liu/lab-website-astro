@@ -5,7 +5,7 @@ import "../styles/home.css";
 ---
 
 <BaseLayout title="Home">
-  <main>
+  <main class="home-main">
 
     <!-- CINEMATIC OPENING -->
     <section class="video-hero">
@@ -62,10 +62,28 @@ import "../styles/home.css";
           approaches to sense, guide and reprogram biological processes-- from decoding molecular dynamics through electrical fluctuations to controlling morphogenesis in on-chip systems.
         </p>
 
-        <a class="button" href="/research">
-          Explore Our Research
-        </a>
+        <div class="mission-actions">
+  <a class="mission-button research-button" href="/research">
+    Explore Research
+    <span aria-hidden="true">↗</span>
+  </a>
+
+  <a class="mission-button research-button" href="/publications">
+    Check Publications
+    <span aria-hidden="true">↗</span>
+  </a>
+
+  <a class="mission-button recruiting-button" href="/join">
+    We Are Recruiting
+    <span aria-hidden="true">↗</span>
+  </a>
+</div>
+
       </div>
+      <a href="#lab-news" class="scroll-prompt mission-scroll-prompt">
+        <span>Check News</span>
+        <span class="arrow" aria-hidden="true">↓</span>
+      </a>
     </section>
 
     
@@ -124,32 +142,25 @@ import "../styles/home.css";
           We welcome motivated researchers interested
           in the physics of living systems.
         </p>
-        <a href="mailto:YOUR_EMAIL@westlake.edu.cn">
-          Get in Touch ↗
+        <a href="/join">
+          How to Join ↗
         </a>
       </article>
 
       <article class="news-item">
-        <span class="news-date">COMING IN 2027</span>
-        <h3>Liu Lab at Westlake University</h3>
+        <span class="news-date">COMING SOON</span>
+        <h3>Living Electrodynamics Lab @Westlake_CIS</h3>
         <p>
-          We are preparing to launch an interdisciplinary
-          research program at the Center for
-          Interdisciplinary Studies.
+          In Sep 1 2027, we will launch at the Center for
+          Interdisciplinary Studies!
+          </p>
+
+          <p>
+
+          PhD students from all Schools are welcomed to get in touch.
         </p>
       </article>
 
-      <article class="news-item">
-        <span class="news-date">RESEARCH</span>
-        <h3>Our Latest Publications</h3>
-        <p>
-          Explore our recent discoveries in
-          bioelectricity and living matter.
-        </p>
-        <a href="/publications">
-          View Publications ↗
-        </a>
-      </article>
     </div>
   </div>
 

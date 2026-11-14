@@ -33,14 +33,15 @@
   margin: 0 0 12px;
 }
 
-.pi-info h2 {
+.pi-info h2,
+.people-join h2 {
   font-size: clamp(36px, 4vw, 54px);
   letter-spacing: -0.035em;
   margin: 0 0 28px;
 }
 
 .pi-bio {
-  font-size: 19px;
+  font-size: var(--font-size-prose);
   line-height: 1.8;
   color: #465466;
   margin: 0;
@@ -55,7 +56,8 @@
   margin-top: 32px;
 }
 
-.pi-links a {
+.pi-links a,
+.people-join a {
   color: var(--color-accent);
   font-size: 16px;
   font-weight: 700;
@@ -63,11 +65,30 @@
   border-bottom: 1px solid transparent;
 }
 
-.pi-links a:hover {
+.pi-links a:hover,
+.people-join a:hover {
   border-bottom-color: currentColor;
 }
 
-/* 4. MOBILE */
+/* 4. RECRUITMENT */
+
+.people-join {
+  margin-top: clamp(40px, 6vw, 80px);
+  padding: clamp(24px, 4vw, 48px);
+  border-left: 4px solid var(--color-accent);
+  border-radius: 8px;
+  background: var(--color-light-background);
+}
+
+.people-join h2 {
+  margin-bottom: 16px;
+}
+
+.people-join .page-description {
+  margin: 0 0 20px;
+}
+
+/* 5. MOBILE */
 
 @media (max-width: 800px) {
   .people-intro {

@@ -1,0 +1,253 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+// Edit recruitment details here.
+const email = "liujinghui@westlake.edu.cn";
+
+// TODO: paste the official Westlake PhD admissions page here.
+// While this is empty, the admissions link is hidden.
+const admissionsUrl = "";
+
+// TODO: verify these dates against the official admissions page each cycle.
+const phdRounds = [
+  { label: "Next round", detail: "application materials due by late December 2026" },
+  { label: "Following round", detail: "application materials due by 31 March 2027" },
+];
+
+const positions = [
+  {
+    id: "phd",
+    title: "PhD students",
+    intro:
+      "We are recruiting PhD students to start in 2027. Westlake admits PhD students in several rounds each year, and all applications go through the university's official admissions process.",
+    points: [
+      "Students from all Schools are welcome: physics, engineering, biology, chemistry and applied mathematics.",
+      "Experimentalists, theorists, and people who want to do both are all welcome.",
+      "We are happy to talk before you apply. Email us (see below) as well as submitting your application.",
+    ],
+  },
+  {
+    id: "postdocs",
+    title: "Postdoctoral researchers",
+    intro:
+      "We are looking for postdocs who want to help build a new lab at the interface of physics and biology.",
+    points: [
+      "Relevant backgrounds include biophysics, soft or active matter, electrophysiology, optics and voltage imaging, microfluidics, and theory or modelling.",
+      "We will support applications for independent fellowships.",
+    ],
+  },
+  {
+    id: "assistants",
+    title: "Research assistants and visiting students",
+    intro:
+      "Opportunities for research assistants, and for visiting undergraduate and master's students, may become available from 2027.",
+    points: [
+      "These are a good way to get research experience before a PhD.",
+    ],
+  },
+];
+---
+
+<BaseLayout title="Join Us">
+  <main class="page-container">
+    <header class="join-intro">
+      <p class="page-eyebrow">Liu Lab · Join Us</p>
+      <h1 class="page-title">Join the lab</h1>
+      <p class="page-description">
+        The Liu Lab opens at the Center for Interdisciplinary Studies, Westlake
+        University, in September 2027. Founding members will help shape the
+        lab's first projects, tools and culture. If you are curious about how
+        living matter uses electricity, we would love to hear from you.
+      </p>
+      <p class="join-research-link">
+        <a href="/research">Read about our research themes <span aria-hidden="true">↗</span></a>
+      </p>
+    </header>
+
+    <div class="positions">
+      {positions.map(({ id, title, intro, points }) => (
+        <section class="position" id={id} aria-labelledby={`${id}-title`}>
+          <h2 id={`${id}-title`}>{title}</h2>
+          <div class="position-copy">
+            <p class="position-intro">{intro}</p>
+            <ul>
+              {points.map((point) => <li>{point}</li>)}
+            </ul>
+
+            {id === "phd" && (
+              <div class="rounds">
+                <p class="rounds-title">Upcoming admission rounds</p>
+                <ul>
+                  {phdRounds.map(({ label, detail }) => (
+                    <li><strong>{label}:</strong> {detail}</li>
+                  ))}
+                </ul>
+                {admissionsUrl && (
+                  <a href={admissionsUrl} target="_blank" rel="noopener noreferrer">
+                    Westlake PhD admissions <span aria-hidden="true">↗</span>
+                  </a>
+                )}
+              </div>
+            )}
+          </div>
+        </section>
+      ))}
+    </div>
+
+    <section class="contact-callout" aria-labelledby="contact-title">
+      <div>
+        <h2 id="contact-title">How to get in touch</h2>
+        <p>
+          Email <a href={`mailto:${email}`}>{email}</a> with the subject line
+          <strong>"[Prospective PhD / Postdoc / RA] Your Name"</strong> and include:
+        </p>
+        <ol>
+          <li>your CV;</li>
+          <li>a short note (up to one page) on what draws you to the lab, and a question you would like to explore;</li>
+          <li>for postdocs, the names of two or three references.</li>
+        </ol>
+        <p class="contact-note">
+          We read every message. Please allow some time for a reply while the lab is being set up.
+        </p>
+      </div>
+      <a class="contact-button" href={`mailto:${email}?subject=[Prospective%20PhD%20/%20Postdoc%20/%20RA]%20`}>
+        Email the lab <span aria-hidden="true">↗</span>
+      </a>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .join-intro {
+    margin-bottom: 64px;
+  }
+
+  .join-research-link a,
+  .rounds a {
+    color: var(--color-accent);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+
+  .join-research-link a:hover,
+  .rounds a:hover {
+    border-bottom-color: currentColor;
+  }
+
+  .position {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.65fr);
+    gap: 40px;
+    padding-block: 44px;
+    border-top: 1px solid var(--color-border);
+    scroll-margin-top: 160px;
+  }
+
+  .position h2,
+  .contact-callout h2 {
+    margin: 0;
+    font-size: clamp(23px, 2.5vw, 30px);
+    line-height: 1.25;
+    letter-spacing: -0.025em;
+  }
+
+  .position-copy p,
+  .position-copy li {
+    color: var(--color-secondary);
+    font-size: var(--font-size-prose);
+    line-height: 1.7;
+  }
+
+  .position-copy > .position-intro {
+    margin: 0 0 12px;
+    color: var(--color-text);
+  }
+
+  .position-copy ul {
+    margin: 0;
+    padding-left: 1.2em;
+  }
+
+  .rounds {
+    margin-top: 28px;
+    padding: 20px 24px;
+    border-left: 4px solid var(--color-accent);
+    border-radius: 8px;
+    background: var(--color-light-background);
+  }
+
+  .rounds .rounds-title {
+    margin: 0 0 8px;
+    color: var(--color-text);
+    font-weight: 700;
+  }
+
+  .rounds ul {
+    margin-bottom: 12px;
+  }
+
+  .contact-callout {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 28px;
+    margin-top: 44px;
+    padding: clamp(24px, 4vw, 52px);
+    border-radius: 12px;
+    background: var(--color-button);
+    color: white;
+  }
+
+  .contact-callout > div {
+    max-width: 760px;
+  }
+
+  .contact-callout h2 {
+    margin-bottom: 16px;
+  }
+
+  .contact-callout p,
+  .contact-callout li {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  .contact-callout ol {
+    padding-left: 1.2em;
+  }
+
+  .contact-callout .contact-note {
+    margin-bottom: 0;
+    opacity: 0.85;
+  }
+
+  .contact-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border: 1px solid currentColor;
+    border-radius: 6px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .contact-button:hover {
+    background: white;
+    color: var(--color-button);
+    border-color: white;
+  }
+
+  @media (max-width: 800px) {
+    .join-intro {
+      margin-bottom: 40px;
+    }
+
+    .position {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+</style>
