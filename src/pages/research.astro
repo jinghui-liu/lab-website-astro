@@ -3,29 +3,47 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 // Edit the introduction and research themes here.
 const introduction =
-  "Cells and tissues generate electrical signals as they grow, change shape, and repair themselves. We study how those signals arise and what they tell us about the forces and feedback that shape living systems.";
+  "Every living cell carries a voltage. Ion channels, pumps and gradients turn cells and tissues into electrical materials that sense, signal and shape themselves, and these states are maintained far from equilibrium. We ask what electrical states living matter can adopt, how they emerge, and how they guide sensing and form, combining quantitative experiments, live voltage imaging and physical theory.";
+
+const openness =
+  "These themes are starting points rather than boundaries. The questions under each one are examples of what we find exciting, and we expect new members to bring questions of their own.";
 
 const themes = [
   {
-    id: "electrical-morphogenesis",
-    title: "Electrical Morphogenesis",
-    question: "How do electrical signals help tissues take shape and repair themselves?",
+    id: "tissue-electrodynamics",
+    title: "Electrical Dynamics of Living Tissues",
+    question: "How do tissues use electrical signals to sense damage and coordinate growth?",
     description:
-      "Regeneration gives us a way to watch a tissue reorganize after injury. We study how changes in membrane voltage and calcium signaling relate to the behavior of individual cells and the growth of the tissue as a whole.",
+      "In regenerating zebrafish fins, we found that injury triggers a fast, organ-wide bioelectric response coupled to calcium signalling and growth. We use regeneration as a window onto how electrical states spread, persist and feed back on the form of a tissue.",
+    examples: [
+      "How far, and how fast, does an electrical signal travel through a tissue, and what sets its range?",
+      "Can tissues remember an electrical event, and for how long?",
+      "Are there shared electrical rules across organs and organisms?",
+    ],
   },
   {
-    id: "latent-electrical-dynamics",
-    title: "Latent Electrical Dynamics",
-    question: "What can small electrical fluctuations tell us about a living system?",
+    id: "nonequilibrium-bioelectricity",
+    title: "Nonequilibrium Physics of Bioelectric States",
+    question: "Which electrical states does living activity make possible?",
     description:
-      "A voltage trace reflects many processes happening at once. We combine time-resolved measurements with physical models to ask which features of a signal reveal the underlying dynamics and which require other measurements to interpret.",
+      "Living electrical systems are continuously driven by ion pumps, channels and metabolism. Together with theory collaborators, we study the states this activity makes possible, such as excitable waves, switches and spatial patterns, and how cells move between them. We combine experiments with modelling and data-driven inference to extract physical rules from voltage dynamics.",
+    examples: [
+      "What can fluctuations in a voltage signal reveal about the processes driving it?",
+      "Can coupled ions, such as voltage and calcium, form patterns on their own?",
+      "Which physical rules can we learn directly from voltage movies?",
+    ],
   },
   {
-    id: "sensing-and-programming-life",
-    title: "Sensing and Programming Life",
-    question: "How can we test whether an electrical signal changes what a cell does?",
+    id: "synthetic-bioelectricity",
+    title: "Synthetic Bioelectricity",
+    question: "Can we build bioelectric function from the bottom up?",
     description:
-      "We explore how optical and electrical interfaces can help us measure signals and test their effects. Controlled perturbations let us compare what a model predicts with how cells and tissues respond.",
+      "We assemble electrical elements, from channels to engineered cells to tissues on chips, into collective systems, and characterise which states emerge at each scale. Building lets us test which ingredients are sufficient, and design physical perturbations that expand what living systems can sense and how they shape themselves.",
+    examples: [
+      "What is the simplest system that shows a given electrical behaviour?",
+      "Can we program electrical patterns, and use them to guide shape?",
+      "How can electrical states be read out to sense molecules or forces?",
+    ],
   },
 ];
 ---
@@ -36,6 +54,7 @@ const themes = [
       <p class="page-eyebrow">Liu Lab · Living Electrodynamics</p>
       <h1 class="page-title">Research</h1>
       <p class="page-description">{introduction}</p>
+      <p class="openness-note">{openness}</p>
     </header>
 
     <nav class="theme-nav" aria-label="Research themes">
@@ -49,25 +68,32 @@ const themes = [
     </nav>
 
     <div class="themes">
-      {themes.map(({ id, title, question, description }) => (
+      {themes.map(({ id, title, question, description, examples }) => (
         <section class="theme" id={id} aria-labelledby={`${id}-title`}>
           <h2 id={`${id}-title`}>{title}</h2>
           <div class="theme-copy">
             <p class="theme-question">{question}</p>
             <p>{description}</p>
-            {id === "electrical-morphogenesis" && (
-              <figure>
-                <video controls playsinline preload="metadata" aria-label="Microscopy footage of larval fish fin regeneration">
-                  <source src="/videos/larvalfishfin-regeneration.mp4" type="video/mp4" />
-                  <a href="/videos/larvalfishfin-regeneration.mp4">Watch the fin regeneration video</a>
-                </video>
-                <figcaption>Microscopy footage of larval fish fin regeneration.</figcaption>
-              </figure>
-            )}
+            <div class="examples">
+              <p class="examples-title">Questions we are curious about, among others</p>
+              <ul>
+                {examples.map((example) => <li>{example}</li>)}
+              </ul>
+            </div>
           </div>
         </section>
       ))}
     </div>
+
+    <section class="own-question" aria-labelledby="own-question-title">
+      <h2 id="own-question-title">Have a question that does not fit here?</h2>
+      <p>
+        Some of our best projects may not belong to any theme yet. If you are
+        curious about how living matter uses electricity, from molecules to
+        organisms, we would love to hear your idea.
+      </p>
+      <a href="/join">Join us <span aria-hidden="true">↗</span></a>
+    </section>
 
     <section class="publications-callout" aria-labelledby="publications-title">
       <h2 id="publications-title">Publications</h2>
@@ -108,6 +134,69 @@ const themes = [
     border-color: var(--color-accent);
   }
 
+  .openness-note {
+    max-width: 760px;
+    margin: 0;
+    padding-left: 16px;
+    border-left: 3px solid var(--color-accent);
+    color: var(--color-text);
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  .examples {
+    margin-top: 24px;
+    padding: 18px 22px;
+    border-radius: 8px;
+    background: var(--color-light-background);
+  }
+
+  .examples-title {
+    margin: 0 0 8px;
+    color: var(--color-accent);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .examples ul {
+    margin: 0;
+    padding-left: 1.2em;
+    color: var(--color-secondary);
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  .own-question {
+    margin: 12px 0 44px;
+    padding: clamp(24px, 4vw, 44px);
+    border-top: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-accent);
+    border-radius: 8px;
+    background: var(--color-light-background);
+  }
+
+  .own-question h2 {
+    margin: 0 0 12px;
+    font-size: clamp(23px, 2.5vw, 30px);
+    letter-spacing: -0.025em;
+  }
+
+  .own-question p {
+    max-width: 760px;
+    margin: 0 0 16px;
+    color: var(--color-secondary);
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  .own-question a {
+    color: var(--color-accent);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
   .theme {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.65fr);
@@ -139,24 +228,6 @@ const themes = [
     line-height: 1.4;
   }
 
-  figure {
-    margin: 28px 0 0;
-  }
-
-  video {
-    display: block;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    border-radius: 10px;
-    background: #10191c;
-  }
-
-  figcaption {
-    margin-top: 10px;
-    color: var(--color-secondary);
-    font-size: 14px;
-    line-height: 1.5;
-  }
 
   .publications-callout {
     display: flex;
