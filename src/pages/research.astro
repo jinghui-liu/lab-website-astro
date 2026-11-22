@@ -3,46 +3,46 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 // Edit the introduction and research themes here.
 const introduction =
-  "Every living cell carries a voltage. Ion channels, pumps and gradients turn cells and tissues into electrical materials that sense, signal and shape themselves, and these states are maintained far from equilibrium. We ask what electrical states living matter can adopt, how they emerge, and how they guide sensing and form, combining quantitative experiments, live voltage imaging and physical theory.";
+  "How does a tissue know what to rebuild? An amputated fin grows back to the size it was, so the cells that remain must hold information about the missing structure, read it out, and act on it. Alongside morphogens and gene expression, cells carry a further layer of that information in their charge distributions and ionic currents. We ask where the information sits, how few variables carry it, and what happens when we change them: we perturb a tissue, read the state that follows, and commit to a prediction before it rebuilds.";
 
 const openness =
   "These themes are starting points rather than boundaries. The questions under each one are examples of what we find exciting, and we expect new members to bring questions of their own.";
 
 const themes = [
   {
-    id: "tissue-electrodynamics",
-    title: "Electrical Dynamics of Living Tissues",
-    question: "How do tissues use electrical signals to sense damage and coordinate growth?",
+    id: "electrical-states-tissue-function",
+    title: "Electrical states and tissue function",
+    question: "How few electrical and ionic variables are enough to predict what a tissue will do?",
     description:
-      "In regenerating zebrafish fins, we found that injury triggers a fast, organ-wide bioelectric response coupled to calcium signalling and growth. We use regeneration as a window onto how electrical states spread, persist and feed back on the form of a tissue.",
+      "A tissue’s electrical state can be measured and manipulated. What it will then do is much harder to say: tissue behaviour is high-dimensional, and most of those dimensions turn out not to matter. We use channel mutants and ionic conditions as the axes, and test sufficiency by prediction.",
     examples: [
-      "How far, and how fast, does an electrical signal travel through a tissue, and what sets its range?",
-      "Can tissues remember an electrical event, and for how long?",
-      "Are there shared electrical rules across organs and organisms?",
+      "Will a fin regrow to its original size?",
+      "Will a planarian fragment rebuild a head?",
+      "Which variables decide the outcome, and which merely accompany it?",
     ],
   },
   {
-    id: "nonequilibrium-bioelectricity",
-    title: "Nonequilibrium Physics of Bioelectric States",
-    question: "Which electrical states does living activity make possible?",
+    id: "kinetics-of-regeneration",
+    title: "The kinetics of regeneration",
+    question: "What sets the rate of regeneration, and the window in which it can happen?",
     description:
-      "Living electrical systems are continuously driven by ion pumps, channels and metabolism. Together with theory collaborators, we study the states this activity makes possible, such as excitable waves, switches and spatial patterns, and how cells move between them. We combine experiments with modelling and data-driven inference to extract physical rules from voltage dynamics.",
+      "Regeneration is a race: a tissue must rebuild before the window for rebuilding closes. Rates and windows differ between tissues, between mutants, and between animals — and that variation is a natural experiment, one that lets us ask what the constraint really is and why evolution settled where it did.",
     examples: [
-      "What can fluctuations in a voltage signal reveal about the processes driving it?",
-      "Can coupled ions, such as voltage and calcium, form patterns on their own?",
-      "Which physical rules can we learn directly from voltage movies?",
+      "Is a tissue that fails to regenerate one that cannot, or one that ran out of time?",
+      "Why do rates and windows differ between tissues, mutants and animals?",
+      "What is the underlying constraint, and why did evolution settle where it did?",
     ],
   },
   {
-    id: "synthetic-bioelectricity",
-    title: "Synthetic Bioelectricity",
-    question: "Can we build bioelectric function from the bottom up?",
+    id: "programmable-morphogenesis",
+    title: "Programmable morphogenesis",
+    question: "Can a tissue be steered electrically, as it is by morphogens, geometry or mechanics?",
     description:
-      "We assemble electrical elements, from channels to engineered cells to tissues on chips, into collective systems, and characterise which states emerge at each scale. Building lets us test which ingredients are sufficient, and design physical perturbations that expand what living systems can sense and how they shape themselves.",
+      "Tissues are usually steered by morphogens, by geometry, or by mechanics. We ask whether the same can be done electrically: whether setting channel activity, ionic conditions and applied fields in space and time is enough to specify what a tissue builds.",
     examples: [
-      "What is the simplest system that shows a given electrical behaviour?",
-      "Can we program electrical patterns, and use them to guide shape?",
-      "How can electrical states be read out to sense molecules or forces?",
+      "Which combinations of channel activity, ionic conditions and applied fields specify a shape?",
+      "How far can this be taken in regenerating fins?",
+      "Can the same rules build organoids and organs on chips to the right shape and size?",
     ],
   },
 ];
@@ -51,7 +51,7 @@ const themes = [
 <BaseLayout title="Research">
   <main class="page-container">
     <header class="research-intro">
-      <p class="page-eyebrow">Liu Lab · Living Electrodynamics</p>
+      <p class="page-eyebrow">Liu Lab · Physics of Regeneration</p>
       <h1 class="page-title">Research</h1>
       <p class="page-description">{introduction}</p>
       <p class="openness-note">{openness}</p>
@@ -89,8 +89,8 @@ const themes = [
       <h2 id="own-question-title">Have a question that does not fit here?</h2>
       <p>
         Some of our best projects may not belong to any theme yet. If you are
-        curious about how living matter uses electricity, from molecules to
-        organisms, we would love to hear your idea.
+        curious about how organs rebuild themselves, and what physics can say
+        about it, we would love to hear your idea.
       </p>
       <a href="/join">Join us <span aria-hidden="true">↗</span></a>
     </section>
