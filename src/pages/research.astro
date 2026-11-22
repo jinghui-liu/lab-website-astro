@@ -49,7 +49,7 @@ const themes = [
 ---
 
 <BaseLayout title="Research">
-  <main class="page-container">
+  <main class="page-container research-page">
     <header class="research-intro">
       <p class="page-eyebrow">Liu Lab · Physics of Regeneration</p>
       <h1 class="page-title">Research</h1>
@@ -107,6 +107,21 @@ const themes = [
     margin-bottom: 80px;
   }
 
+  /* Wider page so the introduction reads in fewer lines */
+  .research-page {
+    padding-inline: 5%;
+  }
+
+  .research-intro .page-description,
+  .openness-note {
+    text-wrap: pretty;
+  }
+
+  .research-intro .page-description {
+    max-width: none;
+    font-size: clamp(20px, 1.22vw, 22px);
+  }
+
   .theme-nav ul {
     display: flex;
     flex-wrap: wrap;
@@ -135,7 +150,7 @@ const themes = [
   }
 
   .openness-note {
-    max-width: 760px;
+    max-width: none;
     margin: 0;
     padding-left: 16px;
     border-left: 3px solid var(--color-accent);

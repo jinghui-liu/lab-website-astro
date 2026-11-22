@@ -710,6 +710,12 @@ header nav a[aria-current="page"] {
   background: rgba(8, 123, 145, 0.04);
 }
 
+.news-item.recruitment h3,
+.news-item.recruitment h4,
+.news-item.recruitment p {
+  color: var(--color-accent);
+}
+
 /* Responsive */
 
 @media (max-width: 900px) {
