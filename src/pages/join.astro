@@ -98,6 +98,20 @@ const positions = [
         building the instrument that makes a measurement possible, there is a
         project here for you. We are happy to talk before you apply.
       </p>
+      <p>
+        Not sure which role fits? Email <a href={`mailto:${email}`}>{email}</a>{" "}
+        with your CV and a short note on what draws you to the lab.
+      </p>
+      <p class="looking-for-note">
+        We read every message. Please allow some time for a reply while the lab
+        is being set up.
+      </p>
+      <a
+        class="looking-for-button"
+        href={`mailto:${email}?subject=[Prospective%20PhD%20/%20Postdoc%20/%20Technician%20/%20RA]%20`}
+      >
+        Email the lab <span aria-hidden="true">↗</span>
+      </a>
     </section>
 
     <div class="positions">
@@ -154,26 +168,6 @@ const positions = [
       ))}
     </div>
 
-    <section class="contact-callout" aria-labelledby="contact-title">
-      <div>
-        <h2 id="contact-title">How to get in touch</h2>
-        <p>
-          Email <a href={`mailto:${email}`}>{email}</a> with the subject line{" "}
-          <strong>"[Prospective PhD / Postdoc / Technician / RA] Your Name"</strong> and include:
-        </p>
-        <ol>
-          <li>your CV;</li>
-          <li>a short note (up to one page) on what draws you to the lab, and a question you would like to explore;</li>
-          <li>for postdocs, the contact details of two referees; for technicians, one.</li>
-        </ol>
-        <p class="contact-note">
-          We read every message. Please allow some time for a reply while the lab is being set up.
-        </p>
-      </div>
-      <a class="contact-button" href={`mailto:${email}?subject=[Prospective%20PhD%20/%20Postdoc%20/%20Technician%20/%20RA]%20`}>
-        Email the lab <span aria-hidden="true">↗</span>
-      </a>
-    </section>
   </main>
 </BaseLayout>
 
@@ -190,6 +184,33 @@ const positions = [
     background: var(--color-light-background);
   }
 
+  .looking-for p a {
+    color: var(--color-accent);
+    font-weight: 700;
+  }
+
+  .looking-for .looking-for-note {
+    margin-bottom: 22px;
+    color: var(--color-text);
+    font-size: 17px;
+  }
+
+  .looking-for-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 18px;
+    border-radius: 6px;
+    background: var(--color-button);
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .looking-for-button:hover {
+    background: var(--color-accent);
+  }
+
   .looking-for h2 {
     margin: 0 0 12px;
     font-size: clamp(23px, 2.5vw, 30px);
@@ -197,8 +218,8 @@ const positions = [
   }
 
   .looking-for p {
-    max-width: 900px;
-    margin: 0;
+    max-width: 1170px;
+    margin: 0 0 14px;
     color: var(--color-secondary);
     font-size: var(--font-size-prose);
     line-height: 1.7;
