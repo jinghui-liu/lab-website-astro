@@ -7,14 +7,10 @@ const email = "liujinghui@westlake.edu.cn";
 // Official Westlake graduate admissions page.
 const admissionsUrl = "https://en.westlake.edu.cn/admissions/graduate/";
 
-// PhD programs through which students can join the lab.
-const programs = [
-  "Quantitative Biology and Complex Systems",
-  "Physics",
-  "Biology",
-  "Biomedical Sciences",
-  "Materials Science and Engineering",
-];
+// PhD program through which students can currently join the lab.
+const program = "Quantitative Biology and Complex Systems";
+const programNote =
+  "This is currently the program through which I can admit PhD students. If your background is elsewhere — physics, engineering, biology, chemistry, applied mathematics — please still get in touch. Co-affiliation with other programs is being arranged, and I am happy to advise on the best route in.";
 
 // TODO: verify these dates against the official admissions page each cycle.
 const phdRounds = [
@@ -29,7 +25,7 @@ const positions = [
     intro:
       "We are recruiting PhD students to start in 2027. Westlake admits PhD students in several rounds each year, and all applications go through the university's official admissions process.",
     points: [
-      "Students from all Schools are welcome: physics, engineering, biology, chemistry and applied mathematics.",
+      "We welcome students from physics, engineering, biology, chemistry and applied mathematics. Your background matters less than the questions you want to answer.",
       "Experimentalists, theorists, and people who want to do both are all welcome.",
       "We are happy to talk before you apply. Email us (see below) as well as submitting your application.",
     ],
@@ -72,6 +68,19 @@ const positions = [
       </p>
     </header>
 
+    <section class="looking-for" aria-labelledby="looking-for-title">
+      <h2 id="looking-for-title">Who we are looking for</h2>
+      <p>
+        Students and postdocs from physics, biology, engineering or computation.
+        You do not need a background in bioelectricity. If you are drawn to how
+        organs rebuild themselves, to nonequilibrium and complex systems, to
+        quantitative imaging, or to building the instrument that makes a
+        measurement possible, there is a project here for you. If you already
+        work on bioelectricity, so much the better — it is the variable we know
+        best, and the one we push hardest.
+      </p>
+    </section>
+
     <div class="positions">
       {positions.map(({ id, title, intro, points }) => (
         <section class="position" id={id} aria-labelledby={`${id}-title`}>
@@ -90,10 +99,9 @@ const positions = [
                     <li><strong>{label}:</strong> {detail}</li>
                   ))}
                 </ul>
-                <p class="rounds-title">You can join the lab through these PhD programs</p>
-                <ul>
-                  {programs.map((program) => <li>{program}</li>)}
-                </ul>
+                <p class="rounds-title">You can join the lab through this PhD program</p>
+                <p class="program-name">{program}</p>
+                <p class="program-note">{programNote}</p>
                 {admissionsUrl && (
                   <a href={admissionsUrl} target="_blank" rel="noopener noreferrer">
                     Apply through Westlake graduate admissions <span aria-hidden="true">↗</span>
@@ -110,7 +118,7 @@ const positions = [
       <div>
         <h2 id="contact-title">How to get in touch</h2>
         <p>
-          Email <a href={`mailto:${email}`}>{email}</a> with the subject line
+          Email <a href={`mailto:${email}`}>{email}</a> with the subject line{" "}
           <strong>"[Prospective PhD / Postdoc / RA] Your Name"</strong> and include:
         </p>
         <ol>
@@ -132,6 +140,39 @@ const positions = [
 <style>
   .join-intro {
     margin-bottom: 64px;
+  }
+
+  .looking-for {
+    margin-bottom: 64px;
+    padding: clamp(24px, 4vw, 44px);
+    border-left: 4px solid var(--color-accent);
+    border-radius: 8px;
+    background: var(--color-light-background);
+  }
+
+  .looking-for h2 {
+    margin: 0 0 12px;
+    font-size: clamp(23px, 2.5vw, 30px);
+    letter-spacing: -0.025em;
+  }
+
+  .looking-for p {
+    max-width: 900px;
+    margin: 0;
+    color: var(--color-secondary);
+    font-size: var(--font-size-prose);
+    line-height: 1.7;
+  }
+
+  .rounds .program-name {
+    margin: 0 0 8px;
+    color: var(--color-text);
+    font-size: var(--font-size-prose);
+    font-weight: 700;
+  }
+
+  .rounds .program-note {
+    margin: 0 0 16px;
   }
 
   .join-research-link a,
