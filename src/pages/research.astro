@@ -12,9 +12,9 @@ const themes = [
   {
     id: "electrical-states-tissue-function",
     title: "Electrical states and tissue function",
-    question: "How few electrical and ionic variables are enough to predict what a tissue will do?",
+    question: "How few electrical and ionic variables are enough to predict how a tissue will regenerate?",
     description:
-      "A tissue’s electrical state can be measured and manipulated. What it will then do is much harder to say: tissue behaviour is high-dimensional, and most of those dimensions turn out not to matter. We use channel mutants and ionic conditions as the axes, and test sufficiency by prediction.",
+      "A tissue’s electrical state can be measured and manipulated. Whether it rebuilds, and to what size, is much harder to say: tissue behaviour is high-dimensional, and most of those dimensions turn out not to matter. We use channel mutants and ionic conditions as the axes, and test sufficiency by prediction.",
     examples: [
       "Is the information in the magnitude of a tissue’s electrical state, its spread across cells, or its pattern in space?",
       "How few variables are enough to predict the regeneration outcome before it happens?",
@@ -24,7 +24,7 @@ const themes = [
   {
     id: "kinetics-of-regeneration",
     title: "The kinetics of regeneration",
-    question: "What sets the rate of regeneration, and the window in which it can happen?",
+    question: "What sets the rate of regeneration, and the window in which it is still possible?",
     description:
       "Regeneration is a race: a tissue must rebuild before the window for rebuilding closes. Rates and windows differ between tissues, between mutants, and between animals — and that variation is a natural experiment, one that lets us ask what the constraint really is and why evolution settled where it did.",
     examples: [
@@ -36,7 +36,7 @@ const themes = [
   {
     id: "programmable-morphogenesis",
     title: "Programmable morphogenesis",
-    question: "Can a tissue be steered electrically, as it is by morphogens, geometry or mechanics?",
+    question: "Can form be specified electrically?",
     description:
       "Tissues are usually steered by morphogens, by geometry, or by mechanics. We ask whether the same can be done electrically: whether setting channel activity, ionic conditions and applied fields in space and time is enough to specify what a tissue builds.",
     examples: [
@@ -75,7 +75,7 @@ const themes = [
             <p class="theme-question">{question}</p>
             <p>{description}</p>
             <div class="examples">
-              <p class="examples-title">Questions we are curious about, among others</p>
+              <p class="examples-title">Some questions we are curious about</p>
               <ul>
                 {examples.map((example) => <li>{example}</li>)}
               </ul>
