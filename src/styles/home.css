@@ -815,3 +815,24 @@ header nav a[aria-current="page"] {
 .news-item .news-subhead ~ p + p {
   margin-top: 12px;
 }
+
+/* Hero title on one line; wider mission column (Nov 2026) */
+@media (min-width: 701px) {
+  .hero-overlay {
+    max-width: 92%;
+  }
+
+  .hero-overlay h1 {
+    font-size: clamp(40px, 5.4vw, 92px);
+    white-space: nowrap;
+  }
+}
+
+.mission-content {
+  width: 94%;
+  max-width: 1720px;
+}
+
+.mission-content > p:not(.eyebrow):not(.mission-eyebrow) {
+  font-size: clamp(18px, 1.25vw, 23px);
+}
