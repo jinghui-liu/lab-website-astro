@@ -114,6 +114,7 @@ const publications = [
     digest: "Can the surface of a living cell behave like a turbulent fluid? We discover defect-mediated turbulence in biochemical signaling waves on starfish egg membranes, showing that their collective dynamics obey statistical principles closely related to classical and quantum fluid systems.",
     doi: "https://doi.org/10.1038/s41567-020-0841-9",
     thumbnail: "/images/publications/2020topologicalturbulence.jpg",
+    mediaBackground: "#000",
   },
   {
     year: 2016,
@@ -197,7 +198,7 @@ const years = [...new Set(publications.map(p => p.year))];
   </div>
 
   <!-- RIGHT: ANIMATED THUMBNAIL -->
-  <div class="publication-media">
+  <div class="publication-media" style={`background: ${p.mediaBackground ?? "#fff"}`}>
     {p.thumbnail && (
       <img
         src={p.thumbnail}
