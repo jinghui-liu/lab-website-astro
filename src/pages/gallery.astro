@@ -5,11 +5,21 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 <BaseLayout title="Gallery">
   <main class="page-container">
     <header>
-      <p class="page-eyebrow">Liu Lab · Gallery</p>
+      <p class="page-eyebrow">Liu Lab · Living Matter in Motion</p>
       <h1 class="page-title">Gallery</h1>
       <p class="page-description">
-        Images and movies from the lab are coming soon.
+        Physics starts with something you cannot stop watching. These are ours.
       </p>
+      <p class="gallery-placeholder">Movies coming soon.</p>
     </header>
   </main>
 </BaseLayout>
+
+<style>
+  .gallery-placeholder {
+    margin: 32px 0 0;
+    color: var(--color-secondary);
+    font-size: 17px;
+    font-style: italic;
+  }
+</style>
