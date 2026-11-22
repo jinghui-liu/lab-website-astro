@@ -804,3 +804,14 @@ header nav a[aria-current="page"] {
   }
 }
 
+
+/* Recruitment sub-heading (front page) */
+.news-item .news-subhead {
+  margin: 20px 0 6px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.news-item .news-subhead ~ p + p {
+  margin-top: 12px;
+}
