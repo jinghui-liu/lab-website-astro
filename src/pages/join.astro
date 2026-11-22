@@ -28,27 +28,37 @@ const positions = [
   {
     id: "postdocs",
     // Later: set applyUrl to the Westlake advertisement; until then the link emails Jinghui.
-    apply: { subject: "Postdoc", applyUrl: "", note: "Send your CV and the contact details of two referees." },
+    apply: {
+      subject: "Postdoc",
+      applyUrl: "",
+      note: "Send your CV and the contact details of two referees.",
+      extra: [
+        "Relevant backgrounds include optical design and microscope assembly, all-optical electrophysiology, voltage imaging, optogenetics, light-sheet or other custom imaging systems, microfluidics, instrument control (Micro-Manager, Python), and quantitative image analysis. You will not have all of these, and we do not expect it.",
+        "We will support applications for independent fellowships, and we are happy to talk long before you are ready to apply.",
+      ],
+    },
     title: "Postdoctoral researchers",
     intro:
       "We are looking for a postdoc to join at the start, and the first project is the instrument.",
     paragraphs: [
       { text: "The lab runs on an all-optical platform: patterned optical stimulation of ion channels, voltage imaging, and long time-lapse of regenerating tissue, with microfluidics for controlled ionic and osmotic environments. Someone has to design and build it, and that person will shape what the lab is able to ask for years afterwards.", emphasis: true },
       { text: "This is a good position if you want to build. You would co-design the rig rather than inherit it, lead the methods work that comes out of it, and move into your own biological project as the platform comes online. It is not a good position if you want to be taking data in your first month.", emphasis: true },
-      "Relevant backgrounds include optical design and microscope assembly, all-optical electrophysiology, voltage imaging, optogenetics, light-sheet or other custom imaging systems, microfluidics, instrument control (Micro-Manager, Python), and quantitative image analysis. You will not have all of these, and we do not expect it.",
-      "We will support applications for independent fellowships, and we are happy to talk long before you are ready to apply.",
     ],
   },
   {
     id: "technician",
     // Later: set applyUrl to the Westlake advertisement; until then the link emails Jinghui.
-    apply: { subject: "Technician", applyUrl: "", note: "Send your CV and the contact details of one referee." },
+    apply: {
+      subject: "Technician",
+      applyUrl: "",
+      note: "Send your CV and the contact details of one referee.",
+      extra: [
+        "In a new lab this is a central role rather than a supporting one — the person who makes experiments possible sets the pace for everything else. We are looking for someone who wants to own it properly, and the position is intended to be long-term.",
+      ],
+    },
     title: "Lab technician",
     intro:
       "We are looking for a lab technician to keep the lab running: zebrafish husbandry and lines, molecular biology, sample preparation, ordering and maintenance, and the daily operation of the imaging setups.",
-    paragraphs: [
-      { text: "In a new lab this is a central role rather than a supporting one — the person who makes experiments possible sets the pace for everything else. We are looking for someone who wants to own it properly, and the position is intended to be long-term.", emphasis: true },
-    ],
   },
   {
     id: "assistants",
@@ -156,6 +166,7 @@ const positions = [
                 <p class="program-note">
                   {apply.note} A formal advertisement on the Westlake website will follow.
                 </p>
+                {apply.extra && apply.extra.map((text) => <p class="program-note">{text}</p>)}
                 {apply.applyUrl ? (
                   <a href={apply.applyUrl} target="_blank" rel="noopener noreferrer">
                     Apply through Westlake <span aria-hidden="true">↗</span>
