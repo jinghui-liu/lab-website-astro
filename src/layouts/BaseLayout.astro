@@ -8,13 +8,18 @@ interface Props {
 }
 
 const { title } = Astro.props;
+const labName = "Physics of Regenerative Soft Matter";
+const pageTitle = title === "Home" ? `${labName} | Liu Lab` : `${title} | ${labName}`;
 ---
 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title} | Liu Lab</title>
+    <title>{pageTitle}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   </head>
 
   <body>
