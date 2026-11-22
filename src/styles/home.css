@@ -829,8 +829,32 @@ header nav a[aria-current="page"] {
   }
 
   .hero-overlay h1 {
-    font-size: clamp(40px, 5.4vw, 92px);
+    margin-bottom: clamp(18px, 1.8vw, 30px);
+    font-size: clamp(44px, 6.2vw, 108px);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
     white-space: nowrap;
+  }
+
+  .hero-overlay p {
+    padding-left: 0.12em;
+    font-size: clamp(14px, 1.25vw, 21px);
+    letter-spacing: 0.08em;
+    text-align: left;
+  }
+}
+
+/* Legibility of the hero text over bright tissue */
+.hero-overlay h1,
+.hero-overlay p {
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.6), 0 0 2px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 700px) {
+  .hero-overlay p {
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-align: left;
   }
 }
 
