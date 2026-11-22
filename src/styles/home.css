@@ -692,7 +692,7 @@ header nav a[aria-current="page"] {
   display: inline-block;
   margin-top: 16px;
   color: var(--color-accent);
-  font-size: 16px;
+  font-size: var(--font-size-prose);
   font-weight: 700;
   text-decoration: none;
 }
