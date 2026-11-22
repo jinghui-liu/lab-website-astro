@@ -34,20 +34,37 @@ const positions = [
     id: "postdocs",
     title: "Postdoctoral researchers",
     intro:
-      "We are looking for postdocs who want to help build a new lab at the interface of physics and biology.",
-    points: [
-      "Relevant backgrounds include biophysics, soft or active matter, electrophysiology, optics and voltage imaging, microfluidics, and theory or modelling.",
-      "We will support applications for independent fellowships.",
+      "We are looking for a postdoc to join at the start, and the first project is the instrument.",
+    paragraphs: [
+      "The lab runs on an all-optical platform: patterned optical stimulation of ion channels, voltage imaging, and long time-lapse of regenerating tissue, with microfluidics for controlled ionic and osmotic environments. Someone has to design and build it, and that person will shape what the lab is able to ask for years afterwards.",
+      "This is a good position if you want to build. You would co-design the rig rather than inherit it, lead the methods work that comes out of it, and move into your own biological project as the platform comes online. It is not a good position if you want to be taking data in your first month.",
+      "Relevant backgrounds include optical design and microscope assembly, all-optical electrophysiology, voltage imaging, optogenetics, light-sheet or other custom imaging systems, microfluidics, instrument control (Micro-Manager, Python), and quantitative image analysis. You will not have all of these, and we do not expect it.",
+      "We will support applications for independent fellowships, and we are happy to talk long before you are ready to apply.",
+    ],
+  },
+  {
+    id: "technician",
+    title: "Lab technician",
+    intro:
+      "We are looking for a lab technician to keep the lab running: zebrafish husbandry and lines, molecular biology, sample preparation, ordering and maintenance, and the daily operation of the imaging setups.",
+    paragraphs: [
+      "In a new lab this is a central role rather than a supporting one — the person who makes experiments possible sets the pace for everything else. We are looking for someone who wants to own it properly, and the position is intended to be long-term.",
     ],
   },
   {
     id: "assistants",
-    title: "Research assistants and visiting students",
+    title: "Research assistants",
     intro:
-      "Opportunities for research assistants, and for visiting undergraduate and master's students, may become available from 2027.",
-    points: [
-      "These are a good way to get research experience before a PhD.",
+      "We are looking for research assistants to work on projects of their own within the lab's questions: running experiments, analysing data, and contributing to papers.",
+    paragraphs: [
+      "This suits someone between a master's and a PhD who wants a year or two of real research before committing to one, or someone with a quantitative background who wants to learn to work with living systems. You would be supervised directly, present your own work, and leave with something to show for it. Several of our first projects have pieces that can belong to one person.",
     ],
+  },
+  {
+    id: "visiting",
+    title: "Visiting students",
+    intro:
+      "Opportunities for visiting undergraduate and master's students may become available from 2027. If you are curious about the lab's questions and want to spend a few months on one, get in touch.",
   },
 ];
 ---
@@ -80,14 +97,17 @@ const positions = [
     </section>
 
     <div class="positions">
-      {positions.map(({ id, title, intro, points }) => (
+      {positions.map(({ id, title, intro, paragraphs, points }) => (
         <section class="position" id={id} aria-labelledby={`${id}-title`}>
           <h2 id={`${id}-title`}>{title}</h2>
           <div class="position-copy">
             <p class="position-intro">{intro}</p>
-            <ul>
-              {points.map((point) => <li>{point}</li>)}
-            </ul>
+            {paragraphs && paragraphs.map((text) => <p class="position-paragraph">{text}</p>)}
+            {points && (
+              <ul>
+                {points.map((point) => <li>{point}</li>)}
+              </ul>
+            )}
 
             {id === "phd" && (
               <div class="rounds">
@@ -188,7 +208,7 @@ const positions = [
 
   .position {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.65fr);
+    grid-template-columns: minmax(160px, 260px) minmax(0, 1fr);
     gap: 40px;
     padding-block: 44px;
     border-top: 1px solid var(--color-border);
@@ -213,6 +233,14 @@ const positions = [
   .position-copy > .position-intro {
     margin: 0 0 12px;
     color: var(--color-text);
+  }
+
+  .position-copy > .position-paragraph {
+    margin: 0 0 12px;
+  }
+
+  .position-copy > .position-paragraph:last-child {
+    margin-bottom: 0;
   }
 
   .position-copy ul {
