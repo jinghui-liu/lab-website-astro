@@ -28,7 +28,7 @@ const positions = [
   {
     id: "postdocs",
     // Later: set applyUrl to the Westlake advertisement; until then the link emails Jinghui.
-    apply: { subject: "Postdoc", applyUrl: "" },
+    apply: { subject: "Postdoc", applyUrl: "", note: "Send your CV and the contact details of two referees." },
     title: "Postdoctoral researchers",
     intro:
       "We are looking for a postdoc to join at the start, and the first project is the instrument.",
@@ -42,7 +42,7 @@ const positions = [
   {
     id: "technician",
     // Later: set applyUrl to the Westlake advertisement; until then the link emails Jinghui.
-    apply: { subject: "Technician", applyUrl: "" },
+    apply: { subject: "Technician", applyUrl: "", note: "Send your CV and the contact details of one referee." },
     title: "Lab technician",
     intro:
       "We are looking for a lab technician to keep the lab running: zebrafish husbandry and lines, molecular biology, sample preparation, ordering and maintenance, and the daily operation of the imaging setups.",
@@ -53,7 +53,7 @@ const positions = [
   {
     id: "assistants",
     // Later: set applyUrl to the Westlake advertisement; until then the link emails Jinghui.
-    apply: { subject: "RA", applyUrl: "" },
+    apply: { subject: "RA", applyUrl: "", note: "Send your CV and a short note on what draws you to the lab." },
     title: "Research assistants",
     intro:
       "We are looking for research assistants to work on projects of their own within the lab's questions: running experiments, analysing data, and contributing to papers.",
@@ -136,8 +136,7 @@ const positions = [
               <div class="rounds">
                 <p class="rounds-title">How to apply</p>
                 <p class="program-note">
-                  Send your CV and a short note on what draws you to the lab. A formal
-                  advertisement on the Westlake website will follow.
+                  {apply.note} A formal advertisement on the Westlake website will follow.
                 </p>
                 {apply.applyUrl ? (
                   <a href={apply.applyUrl} target="_blank" rel="noopener noreferrer">
@@ -165,7 +164,7 @@ const positions = [
         <ol>
           <li>your CV;</li>
           <li>a short note (up to one page) on what draws you to the lab, and a question you would like to explore;</li>
-          <li>for postdocs, two reference letters.</li>
+          <li>for postdocs, the contact details of two referees; for technicians, one.</li>
         </ol>
         <p class="contact-note">
           We read every message. Please allow some time for a reply while the lab is being set up.
