@@ -33,8 +33,8 @@ const positions = [
     intro:
       "We are looking for a postdoc to join at the start, and the first project is the instrument.",
     paragraphs: [
-      "The lab runs on an all-optical platform: patterned optical stimulation of ion channels, voltage imaging, and long time-lapse of regenerating tissue, with microfluidics for controlled ionic and osmotic environments. Someone has to design and build it, and that person will shape what the lab is able to ask for years afterwards.",
-      "This is a good position if you want to build. You would co-design the rig rather than inherit it, lead the methods work that comes out of it, and move into your own biological project as the platform comes online. It is not a good position if you want to be taking data in your first month.",
+      { text: "The lab runs on an all-optical platform: patterned optical stimulation of ion channels, voltage imaging, and long time-lapse of regenerating tissue, with microfluidics for controlled ionic and osmotic environments. Someone has to design and build it, and that person will shape what the lab is able to ask for years afterwards.", emphasis: true },
+      { text: "This is a good position if you want to build. You would co-design the rig rather than inherit it, lead the methods work that comes out of it, and move into your own biological project as the platform comes online. It is not a good position if you want to be taking data in your first month.", emphasis: true },
       "Relevant backgrounds include optical design and microscope assembly, all-optical electrophysiology, voltage imaging, optogenetics, light-sheet or other custom imaging systems, microfluidics, instrument control (Micro-Manager, Python), and quantitative image analysis. You will not have all of these, and we do not expect it.",
       "We will support applications for independent fellowships, and we are happy to talk long before you are ready to apply.",
     ],
@@ -47,7 +47,7 @@ const positions = [
     intro:
       "We are looking for a lab technician to keep the lab running: zebrafish husbandry and lines, molecular biology, sample preparation, ordering and maintenance, and the daily operation of the imaging setups.",
     paragraphs: [
-      "In a new lab this is a central role rather than a supporting one — the person who makes experiments possible sets the pace for everything else. We are looking for someone who wants to own it properly, and the position is intended to be long-term.",
+      { text: "In a new lab this is a central role rather than a supporting one — the person who makes experiments possible sets the pace for everything else. We are looking for someone who wants to own it properly, and the position is intended to be long-term.", emphasis: true },
     ],
   },
   {
@@ -120,7 +120,11 @@ const positions = [
           <h2 id={`${id}-title`}>{title}</h2>
           <div class="position-copy">
             <p class="position-intro">{intro}</p>
-            {paragraphs && paragraphs.map((text) => <p class="position-paragraph">{text}</p>)}
+            {paragraphs && paragraphs.map((para) =>
+              typeof para === "string"
+                ? <p class="position-paragraph">{para}</p>
+                : <p class={`position-paragraph${para.emphasis ? " is-emphasis" : ""}`}>{para.text}</p>
+            )}
             {points && (
               <ul>
                 {points.map((point) => <li>{point}</li>)}
@@ -280,6 +284,10 @@ const positions = [
 
   .position-copy > .position-paragraph {
     margin: 0 0 12px;
+  }
+
+  .position-copy > .position-paragraph.is-emphasis {
+    color: var(--color-text);
   }
 
   .position-copy > .position-paragraph:last-child {
