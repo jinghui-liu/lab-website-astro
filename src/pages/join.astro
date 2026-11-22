@@ -24,14 +24,11 @@ const positions = [
     title: "PhD students",
     intro:
       "We are recruiting PhD students to start in 2027. Westlake admits PhD students in several rounds each year, and all applications go through the university's official admissions process.",
-    points: [
-      "We welcome students from physics, engineering, biology, chemistry and applied mathematics. Your background matters less than the questions you want to answer.",
-      "Experimentalists, theorists, and people who want to do both are all welcome.",
-      "We are happy to talk before you apply. Email us (see below) as well as submitting your application.",
-    ],
   },
   {
     id: "postdocs",
+    // Later: set applyUrl to the Westlake advertisement; until then the link emails Jinghui.
+    apply: { subject: "Postdoc", applyUrl: "" },
     title: "Postdoctoral researchers",
     intro:
       "We are looking for a postdoc to join at the start, and the first project is the instrument.",
@@ -44,6 +41,8 @@ const positions = [
   },
   {
     id: "technician",
+    // Later: set applyUrl to the Westlake advertisement; until then the link emails Jinghui.
+    apply: { subject: "Technician", applyUrl: "" },
     title: "Lab technician",
     intro:
       "We are looking for a lab technician to keep the lab running: zebrafish husbandry and lines, molecular biology, sample preparation, ordering and maintenance, and the daily operation of the imaging setups.",
@@ -53,6 +52,8 @@ const positions = [
   },
   {
     id: "assistants",
+    // Later: set applyUrl to the Westlake advertisement; until then the link emails Jinghui.
+    apply: { subject: "RA", applyUrl: "" },
     title: "Research assistants",
     intro:
       "We are looking for research assistants to work on projects of their own within the lab's questions: running experiments, analysing data, and contributing to papers.",
@@ -88,16 +89,19 @@ const positions = [
     <section class="looking-for" aria-labelledby="looking-for-title">
       <h2 id="looking-for-title">Who we are looking for</h2>
       <p>
-        Students and postdocs from physics, biology, engineering or computation.
-        You do not need a background in bioelectricity. If you are drawn to how
-        organs rebuild themselves, to nonequilibrium and complex systems, to
-        quantitative imaging, or to building the instrument that makes a
-        measurement possible, there is a project here for you.
+        Students and postdocs from physics, biology, engineering, chemistry,
+        applied mathematics or computation — your background matters less than
+        the questions you want to answer. Experimentalists, theorists, and people
+        who want to do both are all welcome, and you do not need a background in
+        bioelectricity. If you are drawn to how organs rebuild themselves, to
+        nonequilibrium and complex systems, to quantitative imaging, or to
+        building the instrument that makes a measurement possible, there is a
+        project here for you. We are happy to talk before you apply.
       </p>
     </section>
 
     <div class="positions">
-      {positions.map(({ id, title, intro, paragraphs, points }) => (
+      {positions.map(({ id, title, intro, paragraphs, points, apply }) => (
         <section class="position" id={id} aria-labelledby={`${id}-title`}>
           <h2 id={`${id}-title`}>{title}</h2>
           <div class="position-copy">
@@ -123,6 +127,25 @@ const positions = [
                 {admissionsUrl && (
                   <a href={admissionsUrl} target="_blank" rel="noopener noreferrer">
                     Apply through Westlake graduate admissions <span aria-hidden="true">↗</span>
+                  </a>
+                )}
+              </div>
+            )}
+
+            {apply && (
+              <div class="rounds">
+                <p class="rounds-title">How to apply</p>
+                <p class="program-note">
+                  Send your CV and a short note on what draws you to the lab. A formal
+                  advertisement on the Westlake website will follow.
+                </p>
+                {apply.applyUrl ? (
+                  <a href={apply.applyUrl} target="_blank" rel="noopener noreferrer">
+                    Apply through Westlake <span aria-hidden="true">↗</span>
+                  </a>
+                ) : (
+                  <a href={`mailto:${email}?subject=${encodeURIComponent(`[Prospective ${apply.subject}] `)}`}>
+                    Apply by email to {email} <span aria-hidden="true">↗</span>
                   </a>
                 )}
               </div>
